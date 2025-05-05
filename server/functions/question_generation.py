@@ -47,7 +47,7 @@ def get_questions(job_title, experience_lvl, call_count):
     msg = ""
     if call_count <= 3:
         msg = (f"Job Title: {job_title}\nExperience level: {experience_lvl}\n\n"
-            "Generate 5 questions that would be asked in an interview based on the job title and experience level provided."
+            "Generate 15 questions that would be asked in an interview based on the job title and experience level provided."
             "\nIMPORTANT : PLEASE FOLLOW THE BELOW RULES\n"
             "RULE : Write only the questions, DONT WRITE ANYTHING ELSE\n"
             "RULE : include question numbers in the begining of each question\n"
@@ -55,7 +55,7 @@ def get_questions(job_title, experience_lvl, call_count):
 
     elif 2 >= call_count <= 7:
         msg = (f"Job Title: {job_title}\nExperience level: {experience_lvl}\n\n"
-            "Generate exactly 5 questions that would be asked in an interview based on the job title and experience level provided."
+            "Generate exactly 15 questions that would be asked in an interview based on the job title and experience level provided."
             "\nIMPORTANT : PLEASE FOLLOW THE BELOW RULES\n"
             "RULE : Write only the questions, DONT WRITE ANYTHING ELSE\n"
             "RULE : include question numbers in the begining of each question\n"
@@ -99,7 +99,7 @@ def generate_questions(job_title, experience_lvl):
     call_count = 1
 
     # keep repeating untill u get EXACTLY 5 questions
-    while no_questions != 5:
+    while no_questions != 15:
 
         # generate questions
         unformatted_qts=get_questions(job_title, experience_lvl, call_count)

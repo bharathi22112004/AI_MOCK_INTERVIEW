@@ -50,12 +50,18 @@
     flex-direction: column;
 }
 
-.review-text-wrapper {
+/*.review-text-wrapper {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 10px;
 }
-
+*/
+.review-text-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    max-height: 60vh; /* Ensures text doesn't overflow */
+}
 .review-text {
     width: 100%;
     word-wrap: break-word;
@@ -66,7 +72,7 @@
 }
 
 .review-text-wrapper::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
 }
 
 .review-text-wrapper::-webkit-scrollbar-thumb {
@@ -122,7 +128,7 @@
     margin: 20px;
     font-size: calc(1.6vw + 1.6vh);
     font-weight: bold;
-    color:#EDC215;
+    color:#271b5a;
     word-break: break-word;
 }
 
@@ -165,7 +171,7 @@
 .right-content2-main p{
     font-size: calc(1.3vw + 1.3vh);
     font-weight: bold;
-    color:#EDC215;
+    color:#b13fc0;
     word-break: break-word;
 }
 
@@ -270,3 +276,8 @@
         height: 30px;
     }
 }
+.right-content2-main canvas {
+  width: 100% !important;
+  height: 250px !important; 
+}
+

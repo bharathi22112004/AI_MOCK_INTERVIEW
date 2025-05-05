@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import '../css/InterviewPage.css';
 import FaceRecognition from '../components/FaceRecognition';
-import { Bs1CircleFill, Bs2CircleFill,Bs3CircleFill, Bs4CircleFill, Bs5CircleFill } from "react-icons/bs";
+import { Bs1CircleFill, Bs2CircleFill,Bs3CircleFill, Bs4CircleFill, Bs5CircleFill,Bs6CircleFill,Bs7CircleFill,Bs8CircleFill,Bs9CircleFill,Bs10CircleFill,Bs11CircleFill,Bs12CircleFill,Bs13CircleFill,Bs14CircleFill,Bs15CircleFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
 import { toastErrorStyle } from '../components/utils/toastStyle';
 import { GlobalContext } from '../components/utils/GlobalState';
@@ -30,7 +30,7 @@ function InterviewPage() {
     const [skipInTimer, setSkipInTimer] = useState(7); // 7 secs
     const [resetSkipInTimer, setResetSkipInTimer] = useState(false);
     const [skipDisabled, setSkipDisabled] = useState(false);
-    const AnswerArray=useRef(new Array(5).fill(''));
+    const AnswerArray=useRef(new Array(15).fill(''));
     const isPageVisible = PageVisibility();
     const navigate = useNavigate();
     const {
@@ -78,8 +78,8 @@ function InterviewPage() {
     // handle skip question timer
     useEffect(()=>{
         setSkipDisabled(true);
-        setSkipInTimer(7); // 7 secs
-        let temp = 6; // start from 1 sec less, to handle the delay in useState update
+        setSkipInTimer(5); // 7 secs
+        let temp = 5; // start from 1 sec less, to handle the delay in useState update
         const intervalId = setInterval(() => {
             if (temp <= 0) {
                 setSkipDisabled(false);
@@ -96,7 +96,7 @@ function InterviewPage() {
     const handleSkipQuestion = () => {
         resetTranscript();
         setResetSkipInTimer(prev => !prev); // toggle value to call useEffect
-        if (questionNumber < 5) {
+        if (questionNumber < 15) {
             setSkippedQuestions(prevState => [...prevState, questionNumber]);
             setCurrentQuestionIndex(prevIndex => prevIndex + 1);
             setQuestionNumber(prev => prev + 1);
@@ -109,7 +109,7 @@ function InterviewPage() {
     const handleNextQuestion = (questionNumber) => {
         resetTranscript();
         setResetSkipInTimer(prev => !prev); // toggle value to call useEffect
-        if(questionNumber < 5){
+        if(questionNumber < 15){
             setNextQuestions(prevState => [...prevState, questionNumber]);
             setQuestionNumber(prev => prev + 1);
             setCurrentQuestionIndex(prevIndex => prevIndex + 1);
@@ -119,6 +119,8 @@ function InterviewPage() {
             toast.error("You've reached the last question.", {...toastErrorStyle(), autoClose: 2000});
         }
     };
+
+    
 
     // answer stuff ==========================================================
     useEffect(() => {
@@ -212,27 +214,14 @@ function InterviewPage() {
             <FaceRecognition />
         </div>
         <div className='questionDisplay-div'>
-            <div className='questionNumber-div'>
-                <div className='Number1-div'>
-                    <Bs1CircleFill className={`numberIcon ${skippedQuestions.includes(1) ? 'skipped' : ''} ${questionNumber === 1 ? 'active' : ''} ${nextQuestions.includes(1) ? 'next' : ''}`} />
-                </div>
-                <div className='line-div'></div>
-                <div className='Number2-div'>
-                    <Bs2CircleFill className={`numberIcon ${skippedQuestions.includes(2) ? 'skipped' : ''} ${questionNumber === 2 ? 'active' : ''} ${nextQuestions.includes(2) ? 'next' : ''}`} />
-                </div>
-                <div className='line-div'></div>
-                <div className='Number3-div'>
-                    <Bs3CircleFill className={`numberIcon ${skippedQuestions.includes(3) ? 'skipped' : ''} ${questionNumber === 3 ? 'active' : ''} ${nextQuestions.includes(3) ? 'next' : ''}`}  />
-                </div>
-                <div className='line-div'></div>
-                <div className='Number4-div'>
-                    <Bs4CircleFill className={`numberIcon ${skippedQuestions.includes(4) ? 'skipped' : ''} ${questionNumber === 4 ? 'active' : ''} ${nextQuestions.includes(4) ? 'next' : ''}`} />
-                </div>
-                <div className='line-div'></div>
-                <div className='Number5-div'>
-                    <Bs5CircleFill className={`numberIcon ${skippedQuestions.includes(5) ? 'skipped' : ''} ${questionNumber === 5 ? 'active' : ''} ${nextQuestions.includes(5) ? 'next' : ''}`}  /> 
-                </div>
-            </div>
+        <div className='questionNumber-div'>
+ 
+  
+  
+
+  
+  
+</div>
             <div className='question-div'>
                 <h3>Question {currentQuestionIndex + 1}</h3>
                 <p>{gQtns[currentQuestionIndex]}</p>
@@ -257,24 +246,24 @@ function InterviewPage() {
             }
             { listening && <button className='stopButton responsiveBtnTxt' onClick={handleStopListen}>Stop</button> }
             { !listening? !recordAttempted?
-                <button className={`skipButton responsiveBtnTxt ${questionNumber === 5 ? 'hidden1' : ''}`}
+                <button className={`skipButton responsiveBtnTxt ${questionNumber === 15 ? 'hidden1' : ''}`}
                  onClick={handleSkipQuestion} disabled={skipDisabled}>
                     {skipDisabled? `Skip in ${skipInTimer}s` : 'Skip'}
                 </button> :
                 <>
                     {transcript.length > 0?
                         <>
-                            <button className={`skipButton responsiveBtnTxt ${questionNumber === 5 ? 'hidden1' : ''}`}
+                            <button className={`skipButton responsiveBtnTxt ${questionNumber === 15 ? 'hidden1' : ''}`}
                             onClick={handleSkipQuestion} disabled={skipDisabled}>
                                 {skipDisabled? `Skip in ${skipInTimer}s` : 'Skip'}
                             </button>
-                            <button className={`nextButton responsiveBtnTxt ${questionNumber === 5 ? 'hidden1' : ''}`} onClick={() => handleNextQuestion(questionNumber)}>
+                            <button className={`nextButton responsiveBtnTxt ${questionNumber === 15 ? 'hidden1' : ''}`} onClick={() => handleNextQuestion(questionNumber)}>
                                 Next
                             </button>
                         
                         </>
                         :
-                        <button className={`skipButton responsiveBtnTxt ${questionNumber === 5 ? 'hidden1' : ''}`}
+                        <button className={`skipButton responsiveBtnTxt ${questionNumber === 15 ? 'hidden1' : ''}`}
                             onClick={handleSkipQuestion} disabled={skipDisabled}>
                             {skipDisabled? `Skip in ${skipInTimer}s` : 'Skip'}
                         </button>
@@ -283,7 +272,7 @@ function InterviewPage() {
                : null
             }
             { !listening &&
-                <button className={`SubmitButton responsiveBtnTxt ${questionNumber === 5 ? 'display' : ''}`}
+                <button className={`SubmitButton responsiveBtnTxt ${questionNumber === 15 ? 'display' : ''}`}
                 onClick={handleSubmit} disabled={skipDisabled}>{skipDisabled? `Submit in ${skipInTimer}s` : 'Submit'}</button> 
             }
         </div>
@@ -293,3 +282,4 @@ function InterviewPage() {
 }
 
 export default InterviewPage;
+

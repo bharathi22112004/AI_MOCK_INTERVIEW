@@ -10,17 +10,17 @@
 
 .interview-div {
   height: 100%;
-  width: 600px;
+  width: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  border: 3px solid #edc215;
+  border: 3px solid #0f8ece;
   border-radius: 10px;
   box-sizing: border-box; /* Ensure padding is included in height */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .questionDisplay-div {
@@ -38,7 +38,7 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 35%;
+  height: 45%;
 }
 
 .answerDisplay-div {
@@ -72,6 +72,7 @@
   align-items: center;
   flex-direction: row;
 }
+
 
 .question-div {
   display: flex;
@@ -140,7 +141,17 @@
 .Number2-div,
 .Number3-div,
 .Number4-div,
-.Number5-div {
+.Number5-div,
+.Number6-div,
+.Number7-div,
+.Number8-div,
+.Number9-div,
+.Number10-div,
+.Number11-div,
+.Number12-div,
+.Number13-div,
+.Number14-div,
+.Number15-div {
   position: relative;
 }
 
@@ -366,3 +377,6 @@
     font-size: 20px;
   }
 }
+
+
+

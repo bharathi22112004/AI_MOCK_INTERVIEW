@@ -30,6 +30,8 @@ def gen_review(job_role, qns, ans, emotion_analysis, suspiciousCount):
         "RULE 2: Don't write anything extra, only write the review."
         "RULE 3: Dont include any main headings such as 'review', use side-headings for explaining."
         "RULE 4: If emotion analysis data is present then USE that for review also."
+        "RULE 4A: If expected answers are provided, compare them with user answers and give feedback on correctness, relevance, and completeness."
+        "RULE 4B: If a performance score is provided (e.g., out of 15 or in %), include that in the review. Use it to give a summary of how well the interviewee performed overall, and suggest improvements accordingly."
         "RULE 5: This review is for an interview given in an website where anyone take mock interviews,"
         "so write review based on that, but dont tell hi,thank u and all."
         "RULE 6: Dont use/assume or write fake data which is not in context for review."

@@ -89,7 +89,7 @@ function HomePage() {
     return (
         <div className='Home-div'>
             <div className='header-div'>
-                <h1 className='header-text'>MOCK INTERVIEW</h1>
+                <h1 className='header-text'>AI MOCK INTERVIEW SYSTEM</h1>
             </div>
             <div className='context-div'>
                 <div className='text-div'>
